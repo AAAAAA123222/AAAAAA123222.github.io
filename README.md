@@ -67,3 +67,88 @@
         - 포켓몬의 기본 포획률, 최대 체력과 현재 체력, 사용하는 볼의 종류, 포켓몬이 가진 상태 이상에 따라 달라지는 포획 확률.
             
             = 전투가 고조될수록 포획할 확률이 높아지는 시스템
+
+# 3일차 C# 사전 문법 기초 / 데이터 다루기 실습
+오늘은 무엇을 배울지에 대한 스크럼을 짧게 진행한 뒤 바로 사전 문법 기초를 진행했습니다.
+아래는 데이터 다루기 실습을 진행했던 연습문제들이었습니다.
+
+1. 데이터 다루기 실습
+
+{
+    int level = 10;
+    int count = 5;
+
+    float percentage = 0.1f;
+    float speed = 4.5f;
+
+    string nickname = "김도훈";
+    string description = "학생입니다";
+
+}
+
+{
+    int iten = 10;
+    float ften = (float)iten;
+
+    float fFive = 5.5f;
+    float iFive=(int)fFive;
+
+    int n = 10;
+    string nstr = n.ToString();
+    
+    float f = 0.5f;
+    string fstr = n.ToString();
+
+    string strTen = "10";
+    int iTen = Convert.ToInt32(strTen);
+
+    string strSix = "6";
+    int iSix = int.Parse(strSix);
+}
+  
+2. 연산자 실습
+   
+{
+    int ten = 10;
+
+    //3 빼기
+    //2 곱하기
+    //1.5 곱하기
+    //3 으로 나누기
+    //4 로 나눴을때 나머지
+    int seven = ten + 7;
+    int three = ten - 3;
+    int Ttwo = ten * 2;
+    float Thalf = (float)ten * 1.5f;
+    float Tthree = ten / 3;
+    int Sfour = ten % 4;
+}
+
+{
+    string name = "김도훈"; // 자신의 이름, 닉네임 으로 연습해보세요.
+    int year = 2024;
+
+
+    //위 변수를 이용해서 아래 문자열을 만들어 보세요.
+
+
+    string introduce = "안녕하세요, 제 이름은 \"" + name + "\" 입니다."; // 안녕하세요. 제 이름은 "chad" 입니다.
+    string thisYear = "올해는" + year + "년 입니다";  // 올해는 'year' 년 입니다. 
+    Console.WriteLine( introduce);
+}
+
+{
+    int ten = 10;
+
+    //아래의 결과값이 전부 true 가 되도록 논리연산을 만들어 보세요.
+
+    bool result_1 = ten == 10;  // ten 이 10 이랑 같다
+    bool result_2 = ten != 11;    // ten 이 11 이랑 같지 않다
+    bool result_3 = ten < 20;    // ten 이 20 보다 작다
+    bool result_4 = ten > 5;    // ten 이 5 보다 크다
+}
+
+// 4.사칙연산간 우선순위가 어떻게 될까요?
+// 곱하기=나누기>덧셈=뺄셈
+
+C# 사전 문법 기초는 4-4, if, else if, else 같이 쓰기까지 진행했습니다. 
