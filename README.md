@@ -107,6 +107,7 @@
     string strSix = "6";
     int iSix = int.Parse(strSix);
 }
+
 // 6.Convert 와 Parse 는 어떤 차이가 있는지 설명해주세요.
 Convert는 변환할 자료형이 뒤에 명시되어야 하고, Parse는 변환할 자료형이 앞에 명시되어야 하는것 같습니다.
   
