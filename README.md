@@ -137,7 +137,6 @@
 
     string introduce = "안녕하세요, 제 이름은 \"" + name + "\" 입니다."; // 안녕하세요. 제 이름은 "chad" 입니다.
     string thisYear = "올해는" + year + "년 입니다";  // 올해는 'year' 년 입니다. 
-    Console.WriteLine( introduce);
 }
 
 {
