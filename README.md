@@ -164,3 +164,12 @@ Convert는 변환할 자료형이 뒤에 명시되어야 하고, Parse는 변환
 
 
 C# 사전 문법 기초는 4-4, if, else if, else 같이 쓰기까지 진행했습니다. 
+
+
+# 4일차 개인학습
+원래는 휴일이라 쉬는게 맞긴 한데, 입실을 눌러버려서 겸사겸사 추가학습을 했습니다.
+
+![image](https://github.com/user-attachments/assets/afe74ef1-a7db-44f6-95db-3ab187bb175d)
+![image](https://github.com/user-attachments/assets/9b20e431-dee2-423a-a1de-3fb74c0c61a8)
+오늘은 함수와 클래스에 대해 학습했지만, 제대로 이해하고 사용하기엔 살짝 시간이 필요할 것 같습니다.
+
