@@ -176,72 +176,73 @@ C# 사전 문법 기초는 4-4, if, else if, else 같이 쓰기까지 진행했�
 # 5일차 본격 프로그래밍 시작해보기
 오늘은 문법 기초를 다시 되짚어보며 프로그램을 작성했습니다.
 
-``string input = Console.ReadLine();
+    string input = Console.ReadLine();
+    
+    int number;
+    bool boolean;
+    bool isnumber = int.TryParse(input,out number);
+    bool isboolean=bool.TryParse(input,out boolean);
 
-int number;
-bool boolean;
-bool isnumber = int.TryParse(input,out number);
-bool isboolean=bool.TryParse(input,out boolean);
+    if(isnumber==true)
+    {
+        Console.WriteLine("숫자입니다.");
+    }
 
-if(isnumber==true)
-{
-    Console.WriteLine("숫자입니다.");
-}
-
-else if(isboolean==true)
-{
-    Console.WriteLine("불리언 입니다.");
-}
-
-else
-{
+    else if(isboolean==true)
+    {
+        Console.WriteLine("불리언 입니다.");
+    }
+    
+    else
+    {
     Console.WriteLine("문자열입니다");
-}``
+    }
+
 1~2.프로그램에 입력된 것이 어떤 종류의 데이터인지 알려주는 프로그램(1-숫자와 문자열, 2-숫자와 문자열, 불리언까지)
 
-``string input = Console.ReadLine(); // 데이터를 입력하고 Enter 를 누르면 다음으로 넘어갑니다.
+    string input = Console.ReadLine(); // 데이터를 입력하고 Enter 를 누르면 다음으로 넘어갑니다.
 
-int number;
-bool isnumber = int.TryParse(input, out number);
+    int number;
+    bool isnumber = int.TryParse(input, out number);
 
-if (isnumber == false)
-{
+    if (isnumber == false)
+    {
     Console.WriteLine("숫자가 아닙니다.");
-}
+    }
 
-else if(number >= 100)
-{
+    else if(number >= 100)
+    {
     Console.WriteLine("`" +number+ "은(는) 100 보다 같거나 큰 수 입니다.`");
-}
+    }
 
-else
-{
+    else
+    {
     Console.WriteLine("`"+number+ "은(는) 100보다 작은 수 입니다.`");
-}``
-3. 프로그램에 입력된 것이 100보다 같거나 큰 수인지, 작은 수인지, 아니면 숫자가 아닌지 알려주는 프로그램
+    }
+    3. 프로그램에 입력된 것이 100보다 같거나 큰 수인지, 작은 수인지, 아니면 숫자가 아닌지 알려주는 프로그램
 
-``string input = Console.ReadLine(); // 데이터를 입력하고 Enter 를 누르면 다음으로 넘어갑니다.
+    string input = Console.ReadLine(); // 데이터를 입력하고 Enter 를 누르면 다음으로 넘어갑니다.
 
-int number;
-bool isnumber = int.TryParse(input, out number);
+    int number;
+    bool isnumber = int.TryParse(input, out number);
 
-int divided = number / 2;
-int remainder = number % 2;
+    int divided = number / 2;
+    int remainder = number % 2;
 
-if (isnumber == false)
-{
-    Console.WriteLine("숫자가 아닙니다.");
-}
+    if (isnumber == false)
+    {
+        Console.WriteLine("숫자가 아닙니다.");
+    }
 
-else if (remainder==0)
-{
-    Console.WriteLine( number+"은(는) 짝수 입니다.");
-}
+    else if (remainder==0)
+    {
+        Console.WriteLine( number+"은(는) 짝수 입니다.");
+    }
 
-else
-{
+    else
+    {
     Console.WriteLine(number+"은(는) 홀수 입니다.");
-}``
+    }
 4. 프로그램에 입력된 것이 홀수인지, 짝수인지, 숫자가 아닌지 알려주는 프로그램(짝수는 2로 나눴을 때 나머지가 0인 것을 이용한)
 
 5. 언제 if 를 쓰고 언제 case 를 쓸까요?
