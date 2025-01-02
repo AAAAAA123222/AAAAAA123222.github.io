@@ -173,3 +173,77 @@ C# 사전 문법 기초는 4-4, if, else if, else 같이 쓰기까지 진행했�
 ![image](https://github.com/user-attachments/assets/9b20e431-dee2-423a-a1de-3fb74c0c61a8)
 오늘은 함수와 클래스. 그리고 객체에 대해 학습했지만, 제대로 이해하고 사용하기엔 살짝 시간이 필요할 것 같습니다.
 
+# 5일차 본격 프로그래밍 시작해보기
+오늘은 문법 기초를 다시 되짚어보며 프로그램을 작성했습니다.
+
+``string input = Console.ReadLine();
+
+int number;
+bool boolean;
+bool isnumber = int.TryParse(input,out number);
+bool isboolean=bool.TryParse(input,out boolean);
+
+if(isnumber==true)
+{
+    Console.WriteLine("숫자입니다.");
+}
+
+else if(isboolean==true)
+{
+    Console.WriteLine("불리언 입니다.");
+}
+
+else
+{
+    Console.WriteLine("문자열입니다");
+}``
+1~2.프로그램에 입력된 것이 어떤 종류의 데이터인지 알려주는 프로그램(1-숫자와 문자열, 2-숫자와 문자열, 불리언까지)
+
+``string input = Console.ReadLine(); // 데이터를 입력하고 Enter 를 누르면 다음으로 넘어갑니다.
+
+int number;
+bool isnumber = int.TryParse(input, out number);
+
+if (isnumber == false)
+{
+    Console.WriteLine("숫자가 아닙니다.");
+}
+
+else if(number >= 100)
+{
+    Console.WriteLine("`" +number+ "은(는) 100 보다 같거나 큰 수 입니다.`");
+}
+
+else
+{
+    Console.WriteLine("`"+number+ "은(는) 100보다 작은 수 입니다.`");
+}``
+3. 프로그램에 입력된 것이 100보다 같거나 큰 수인지, 작은 수인지, 아니면 숫자가 아닌지 알려주는 프로그램
+
+``string input = Console.ReadLine(); // 데이터를 입력하고 Enter 를 누르면 다음으로 넘어갑니다.
+
+int number;
+bool isnumber = int.TryParse(input, out number);
+
+int divided = number / 2;
+int remainder = number % 2;
+
+if (isnumber == false)
+{
+    Console.WriteLine("숫자가 아닙니다.");
+}
+
+else if (remainder==0)
+{
+    Console.WriteLine( number+"은(는) 짝수 입니다.");
+}
+
+else
+{
+    Console.WriteLine(number+"은(는) 홀수 입니다.");
+}``
+4. 프로그램에 입력된 것이 홀수인지, 짝수인지, 숫자가 아닌지 알려주는 프로그램(짝수는 2로 나눴을 때 나머지가 0인 것을 이용한)
+
+5. 언제 if 를 쓰고 언제 case 를 쓸까요?
+if는 논리 연산이나 새로운 변수를 통해 바뀌는 수를 체크하지만
+case는 변할수 있거나, 새로운 변수가 아닌, "변수 하나의 고정된 값"만을 체크합니다.
