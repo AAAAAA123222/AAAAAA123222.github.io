@@ -248,3 +248,171 @@ C# 사전 문법 기초는 4-4, if, else if, else 같이 쓰기까지 진행했�
 5. 언제 if 를 쓰고 언제 case 를 쓸까요?
 if는 논리 연산이나 새로운 변수를 통해 바뀌는 수를 체크하지만
 case는 변할수 있거나, 새로운 변수가 아닌, "변수 하나의 고정된 값"만을 체크합니다.
+
+# 6일차 Lv2. 제어문(조건문, 연산자)
+오늘도 문법 기초를 다시 되짚어보며 프로그램을 작성했습니다.
+
+    Console.WriteLine("첫번째 수를 입력해 주세요");
+    string input = Console.ReadLine();
+    
+    Console.WriteLine("두번째 수를 입력해 주세요");
+    string input2 = Console.ReadLine();
+    
+    int num;
+    bool result1 = int.TryParse(input, out num);
+    
+    int num2;
+    bool result2 = int.TryParse(input2, out num2);
+    
+    
+    if (result1 && result2)
+    {
+        if (num == num2)
+        {
+            Console.WriteLine(num+"와(과)"+num2+"은(는) 같습니다.");
+        }
+        else if(num>num2)
+        {
+            Console.WriteLine(num+"은(는)"+num2+"보다 큽니다.");
+        }
+        else //(num<num2)를 대신하는 else
+        {
+            Console.WriteLine(num+"은(는)"+num2+"보다 작습니다.");
+        }
+    }
+    
+    else
+    {
+        Console.WriteLine("두 개의 숫자를 입력해주세요.");
+숫자 구분+비교하기
+
+    Console.WriteLine("대한민국의 수도는 어디인가요 ? 1.인천   2.평창   3.서울   4.부산");
+    string input=Console.ReadLine();
+    
+    
+    
+    int num;
+    bool isnum = int.TryParse(input, out num);
+    
+    if (isnum)
+    {
+        switch (num) // 정답 보고오니까... 그냥 if랑 else 쓰면 됐었음...
+        {
+            case 1:
+                Console.WriteLine("오답입니다!");
+                break;
+            case 2:
+                Console.WriteLine("오답입니다!");
+                break;
+            case 3:
+                Console.WriteLine("정답입니다!");
+                break;
+            case 4:
+                Console.WriteLine("오답입니다!");
+                break;
+            default:
+                Console.WriteLine("1~4의 숫자를 입력해주세요.");
+                break;
+        }
+    }
+    else
+    {
+        Console.WriteLine("숫자가 아닙니다.");
+    }
+대한민국의 수도 찾기
+
+    Console.WriteLine("어디로 여행을 가고 싶나요?");
+    Console.WriteLine("1.제주도   2.코타키나발루   3.싱가포르   4.태국");
+    string input = Console.ReadLine();
+    int num;
+    bool isnum = int.TryParse(input, out num);
+    
+    if (isnum)
+    {
+        switch (num) // 여기서 쓰는거였구나...
+        {
+            case 1:
+                Console.WriteLine("제주도는 한국의 섬으로 비교적 방문이 쉽고 다양한 놀거리/먹거리가 준비되어 있습니다.");
+                break;
+            case 2:
+                Console.WriteLine("코타키나발루는 말레이시아 사바주의 주도로, 말레이시아 동부 보르네오섬 최대의 도시입니다.");
+                break;
+            case 3:
+                Console.WriteLine("싱가포르는 동남아시아, 말레이 반도의 끝에 위치한 섬나라이자 항구 도시로 이루어진 도시 국가입니다.");
+                break;
+            case 4:
+                Console.WriteLine("태국은 중국문화, 말레이문화, 불교문화, 힌두문화, 이슬람 문화가 혼재되어 있습니다. 불교적인 모습을 많이 띄지만, 문화 자체는 색다르고 스펙트럼이 넓은 형태를 띄고 있어요.");
+                break;
+            default:
+                Console.WriteLine("1~4의 숫자를 입력해주세요.");
+                break;
+        }
+    }
+    else
+    {
+        Console.WriteLine("숫자가 아닙니다.");
+    }
+휴양지 추천
+
+    bool isperfect;
+    
+    do
+    {
+        Console.WriteLine("이름을 입력해주세요. (3~10글자)");
+        string input = Console.ReadLine();
+        int length = input.Length;
+        Console.Clear();
+    
+        bool Nottoolow = length > 2;
+        bool Nottoohigh = length < 11;
+        if (length > 2)
+        {
+            if (length < 11)
+            {
+    
+                Console.WriteLine("안녕하세요! 제 이름은 " + input + "입니다.");
+            }
+            else
+            {
+                Console.WriteLine("이름을 확인해주세요.");
+            }
+    
+    
+        }
+        else
+        {
+            Console.WriteLine("이름을 확인해주세요.");
+        }
+    
+        isperfect = Nottoolow && Nottoohigh;
+    
+    }
+    while (!isperfect);
+    // 내가 작성한 코드
+    
+    
+    
+    
+    bool isSuccess;
+    
+    do
+    {
+        Console.WriteLine("이름을 입력해주세요. (3~10글자)");
+        string input = Console.ReadLine();
+    
+        Console.Clear();
+    
+        if (input.Length >= 3 && input.Length <= 10)
+        {
+            Console.WriteLine("안녕하세요! 제 이름은 " + input + " 입니다.");
+        }
+        else
+        {
+            Console.WriteLine("이름을 확인해주세요.");
+        }
+    
+        isSuccess = input.Length >= 3 && input.Length <= 10;
+    }
+    while (!isSuccess);
+    // 정답 코드
+3글자 이상~11글자 초과 이름 입력하기 / 올바른 답이 제출되기 전까지 프로그램이 실행되게 만들기
