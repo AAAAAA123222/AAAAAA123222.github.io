@@ -417,7 +417,7 @@ case는 변할수 있거나, 새로운 변수가 아닌, "변수 하나의 고�
     // 정답 코드
 3글자 이상~11글자 초과 이름 입력하기 / 올바른 답이 제출되기 전까지 프로그램이 실행되게 만들기
 
-# 7일차 복습+소수 출력반복문
+# 7일차 복습+홀수 출력반복문
 오늘은 복습을 중점적으로 했습니다. if문은 기억하지 않고도 잘 쓸 수 있었지만. switch나 비교 연산자는 아직 기억이 잘 안 나서 기초 강의를 찾아보게 됐었습니다.
 
 출력반복문:
@@ -449,3 +449,78 @@ case는 변할수 있거나, 새로운 변수가 아닌, "변수 하나의 고�
         }
         k++;
     } while (k <= 100);
+
+# 8일차 기초반 복습+ 1. 홀수 출력 복습, 2. 배열을 사용한 합계 및 평균 계산
+오늘도 복습을 중점적으로 했습니다. switch case를 사용해야 하는 상황이나, 반복문이 작동하기 위한 조건과 변수 초기화같은 것은 기억나질 않아 다시 찾아보긴 했습니다.
+오늘 기억나지 않았던 걸 다시 기억해서 적자면
+
+switch(변수)
+{
+case n:
+코드 실행;
+break;
+...
+}
+for (조건 초기화, 조건, 변화값)
+{코드 실행}
+
+while(조건)
+{코드 실행}
+
+do
+{코드 실행}
+while(조건)
+
+이었던 것 같습니다.
+반복문들은 홀수 출력을 복습하던 도중 기억이 안 났었고, switch case는 여행지 추천 코드때 기억이 안 났던 것 같습니다.
+
+배열을 사용한 합계 및 평균 계산:
+
+    int[] numbers = new int[5];
+    Console.WriteLine("1번째 수를 입력해 주세요.");
+    string result = Console.ReadLine();
+    int iresult = Convert.ToInt32(result);
+    Console.WriteLine("2번째 수를 입력해 주세요.");
+    string result2 = Console.ReadLine();
+    int iresult2 = Convert.ToInt32(result2);
+    Console.WriteLine("3번째 수를 입력해 주세요.");
+    string result3 = Console.ReadLine();
+    int iresult3 = Convert.ToInt32(result3);
+    Console.WriteLine("4번째 수를 입력해 주세요.");
+    string result4 = Console.ReadLine();
+    int iresult4 = Convert.ToInt32(result4);
+    Console.WriteLine("5번째 수를 입력해 주세요.");
+    string result5 = Console.ReadLine();
+    int iresult5 = Convert.ToInt32(result5);
+    numbers[0] = iresult;
+    numbers[1] = iresult2;
+    numbers[2] = iresult3;
+    numbers[3] = iresult4;
+    numbers[4] = iresult5;
+
+    int numLength = numbers.Length;
+    float sum = numbers[0] + numbers[1] + numbers[2] + numbers[3] + numbers[4];
+    float Average = sum / numLength;
+
+    Console.WriteLine("sum:" + sum);
+    Console.WriteLine("Average:" + Average);
+    // 일단 돌아가는 지시문
+
+작성까진 했으나 "이게 과연 맞는건가?" 싶어서 반복문으로 다시 작성했습니다.
+
+    int[] numbers = new int[5];
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        Console.WriteLine(i+1+"번째 숫자를 입력해주세요.");
+        string input=Console.ReadLine();
+        int iinput = int.Parse(input);
+        numbers[i] = iinput;
+    }
+    int numLength = numbers.Length;
+    int sum = numbers[0] + numbers[1] + numbers[2] + numbers[3] + numbers[4];
+    float Average = sum / numLength;
+    Console.WriteLine("sum:" + sum);
+    Console.WriteLine("Average:" + Average);
+    //아 이건 아니다 싶어서 다시 작성한 반복문
+
+힌트를 안 보고 풀어야 실력이 늘 것이란 생각때문에 힌트를 안 봤더니 "입력한 값들"이 아닌, 지정된 값이라는 것을 몰라서, 좀 길게 돌아서 간 것 같습니다...
