@@ -525,3 +525,94 @@ case는 변할수 있거나, 새로운 변수가 아닌, "변수 하나의 고�
     //아 이건 아니다 싶어서 다시 작성한 반복문
 
 힌트를 안 보고 풀어야 실력이 늘 것이란 생각때문에 힌트를 안 봤더니 "입력한 값들"이 아닌, 지정된 값이라는 것을 몰라서, 좀 길게 돌아서 간 것 같습니다...
+
+# 9일차 달리기반 3~5
+오늘은 복습할 필요가 없다 판단해 그대로 달리기반 문제들을 진행했습니다.
+
+    Console.WriteLine("Enter a number:");
+    string input = Console.ReadLine();
+    
+    int iinput = int.Parse(input);
+    
+    int finput = 1;
+    
+    for(int i=1;i<=iinput;i++)
+    {
+        finput *= i;
+    }
+        
+    Console.WriteLine("Factorial of "+iinput+" is "+ finput);
+
+3. 팩토리얼 계산
+
+        Random random = new Random();
+        int randomNumber = random.Next(); // 0과 int.MaxValue 사이의 난수 생성
+        int randomNumberInRange = random.Next(1, 101); // 1과 100 사이의 난수 생성
+        
+        bool isright=true;
+        
+        do
+        {
+        
+            Console.WriteLine("Enter your guess (1-100):");
+            string input=Console.ReadLine();
+            int iinput=int.Parse(input);
+        
+            if(iinput==randomNumberInRange)
+            {
+                isright = false;
+                Console.WriteLine("Congratulations! You guessed the number.");
+            }
+            else if(iinput> randomNumberInRange)
+            {
+                Console.WriteLine("Too high! Try again.");
+            }
+            else
+            {
+                Console.WriteLine("Too low! Try again.");
+            }
+        
+        }
+        while (isright);
+
+4. 숫자 맞추기 게임
+
+        int main;
+        int sub=1;
+        string[] result = new string[9];
+        for (int i = 2; i <= 9; i++)
+        {
+            for (int j = 1; j <= 9; j++)
+            {
+                sub = i * j;
+        
+        
+                result[j-1] = i +" x "+j+"=" + sub+"  ";
+        
+        
+            }
+        
+            Console.WriteLine(result[0]+result[1]+result[2]+result[3]+result[4]+result[5]+result[6]+result[7]+result[8]);
+        }
+        //가로 출력
+        
+        
+        int main;
+        int sub=1;
+        string[] result = new string[9];
+        for (int i = 1; i <= 9; i++)
+        {
+            for (int j = 2; j <= 9; j++)
+            {
+                sub = i * j;
+        
+        
+                result[j-1] = j +" x "+i+"=" + sub+"  ";
+        
+        
+            }
+        
+            Console.WriteLine(result[0]+result[1]+result[2]+result[3]+result[4]+result[5]+result[6]+result[7]+result[8]);
+        }
+        //세로 출력
+5. 이중 반복문 출력
