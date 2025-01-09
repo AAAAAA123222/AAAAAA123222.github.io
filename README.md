@@ -526,7 +526,7 @@ case는 변할수 있거나, 새로운 변수가 아닌, "변수 하나의 고�
 
 힌트를 안 보고 풀어야 실력이 늘 것이란 생각때문에 힌트를 안 봤더니 "입력한 값들"이 아닌, 지정된 값이라는 것을 몰라서, 좀 길게 돌아서 간 것 같습니다...
 
-# 9일차 달리기반 3~5
+# 9일차 달리기반 3~6
 오늘은 복습할 필요가 없다 판단해 그대로 달리기반 문제들을 진행했습니다.
 
 3. 팩토리얼 계산
@@ -626,3 +626,140 @@ i가 iinput보다 작은 것이 반복문의 종료 조건이라 생각했는데
             Console.WriteLine(result[0]+result[1]+result[2]+result[3]+result[4]+result[5]+result[6]+result[7]+result[8]);
         }
         //세로 출력
+
+
+# 10일차 달리기반 7
+오늘도, 복습이 그렇게 필요한 것 같진 않아서 바로 문제부터 풀었습니다.
+7. 행맨 게임
+
+팀원분들의 도움을 받아서 겨우 작성했습니다.
+아직 어떻게 작동하는지도 잘 모르고, 그리고 직접 작성할 수 있도록 감을 잡기 위해 내일은 아마 행맨 게임이 어떻게 작동했는지를 이해하는 데에 시간을 할애할 것 같습니다.
+
+
+        string secretWord = "hangman";
+        char[] guessWord = new char[secretWord.Length];
+        
+        for (int j = 0; j < guessWord.Length; j++)
+        {
+            guessWord[j] = '_';
+        }
+        
+        int attempts = 6;
+        
+        int i = 0;
+        bool wordGuessed=false;
+        
+            for (; (wordGuessed==false) && (i<attempts); i++)
+            {
+                
+                int Leftattempts = attempts - i;
+                Console.WriteLine(guessWord);
+                Console.WriteLine("알파벳을 입력하세요:");
+                Console.WriteLine("기회가 " + Leftattempts + "회 남았습니다.");
+                string input = Console.ReadLine();
+                Console.Clear();
+        
+                char cinput;
+                bool ischar = char.TryParse(input, out cinput);
+        
+            if (ischar)
+            {
+                for (int k = 0; k < guessWord.Length; k++)
+                {
+                    bool isEqual = cinput == secretWord[k];
+                    if (isEqual)
+                    {
+                        guessWord[k] = cinput;
+        
+                    }
+                }
+        
+            }
+            else
+            {
+                Console.WriteLine("한 글자만 입력해주세요.");
+            }
+        
+                wordGuessed = (new string(guessWord) == new string(secretWord));
+            if(wordGuessed)
+            {
+                Console.WriteLine(guessWord);
+                Console.WriteLine("축하합니다! 정답을 맞추셨습니다.");
+            }
+        
+            }
+
+
+8. 숫자 야구 게임
+
+이건... 오늘은, 7번의 행맨 게임을 기반으로, 어떻게 작동해야 하는지에 대해 생각하며 주석을 달아놓는 정도로만 그쳤습니다.
+아마도, 혼자 하려면 시간이 꽤 많이 걸릴 것 같아서, 내일도 팀원분들에게 물어봐야 할 것 같습니다.
+
+    
+    Random random = new Random();
+    int[] targetNumber = new int[3];
+    //프로그램이 지정할 문제의 배열
+    
+    for (int k = 0; (k < targetNumber.Length); k++)
+    {
+        targetNumber[k] = random.Next(0,9);
+    }
+    //배열 안에 무작위 난수를 넣는 코드
+    
+    int[] userGuess = new int[targetNumber.Length];
+    bool guessedCorrectly = false;
+    //유저 인풋 추가
+    
+    for (int attempts = 0; (guessedCorrectly == false); attempts++) //시도 횟수 선언, 숫자가 맞을때까지 반복, 매 반복마다 시도 횟수 추가
+    {
+    
+        Console.WriteLine($"세 자리의 숫자를 맞춰 보세요:{userGuess}");
+        string input = Console.ReadLine();
+        Console.Clear();
+        //문제 출력
+    
+        bool isnum = false;
+        if (input.Length==3)
+        {
+            int iinput;
+            isnum = int.TryParse(input, out iinput);
+        }
+        else
+        {
+            Console.WriteLine("세 자리 숫자를 입력해주세요.");
+        }
+        //세 자리 숫자 확인
+    
+    
+        if (isnum)
+        {
+            for (int k = 0; k < userGuess.Length; k++)
+            {
+    
+            }
+    
+        }
+        //스트라이크 | 볼 확인
+    
+        else
+        {
+            Console.WriteLine("숫자가 아닙니다.");
+        }
+        //숫자가 아닐 경우 출력
+    
+        guessedCorrectly = (userGuess) == (targetNumber);
+        if (guessedCorrectly)
+        {
+            Console.WriteLine(userGuess);
+            Console.WriteLine($"축하합니다! 정답을 {attempts}번 안에 맞추셨습니다.");
+        }
+        //정답을 맞췄을 경우 출력
+    
+    }
+    
+    - `targetNumber`: 컴퓨터가 선택한 3자리의 숫자를 저장하는 배열입니다.
+    - `userGuess`: 사용자가 추측한 숫자를 저장하는 배열입니다.
+    - `strikes`: 자릿수와 숫자가 모두 맞는 경우의 개수를 저장합니다.
+    - `balls`: 자릿수는 맞지 않지만 숫자가 포함된 경우의 개수를 저장합니다.
+    - `guessedCorrectly`: 사용자가 숫자를 정확히 맞췄는지를 나타내는 불리언 변수입니다.
+
