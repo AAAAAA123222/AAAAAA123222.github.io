@@ -766,3 +766,114 @@ i가 iinput보다 작은 것이 반복문의 종료 조건이라 생각했는데
     - `balls`: 자릿수는 맞지 않지만 숫자가 포함된 경우의 개수를 저장합니다.
     - `guessedCorrectly`: 사용자가 숫자를 정확히 맞췄는지를 나타내는 불리언 변수입니다.
 
+# 11일차 달리기반 8
+오늘도, 복습이 그렇게 필요한 것 같진 않아서 바로 문제부터 풀었습니다.
+
+숫자 야구는 어느정도 완성하긴 했지만, 중복 검사를 아직 완성하질 못 했습니다.
+
+        Random random = new Random();
+        int[] targetNumber = new int[3];
+        //프로그램이 지정할 문제의 답
+        
+        for (int k = 0; (k < targetNumber.Length); k++)
+        {
+            targetNumber[k] = random.Next(0,9);
+        }
+        //배열 안에 무작위 난수를 넣는 코드
+        
+        do
+        {
+        
+        
+        }
+        while()
+        
+        
+        int[] userGuess = new int[targetNumber.Length];
+        bool guessedCorrectly = false;
+        //유저 인풋 추가
+        
+        string input = "000";
+        int strike = 0;
+        int ball = 0;
+        //초기 변수 선언
+        
+        for (int attempts = 0; (guessedCorrectly == false); attempts++) //시도 횟수 선언, 숫자가 맞을때까지 반복, 매 반복마다 시도 횟수 추가
+        {
+            strike = 0;
+            ball = 0;
+            //스트라이크|볼 초기화
+        
+            Console.WriteLine($"세 자리의 숫자를 맞춰 보세요:{input}");
+            input = Console.ReadLine();
+            Console.Clear();
+            //문제 출력
+        
+            bool isnum = false;
+            if (input.Length==3)
+            {
+                int iinput;
+                isnum = int.TryParse(input, out iinput);
+            }
+            //숫자인지 확인
+        
+            else
+            {
+                Console.WriteLine("세 자리 숫자를 입력해주세요.");
+            }
+            //세 자리 숫자가 아닐 경우 확인 및 출력
+        
+        
+        
+        
+        
+        
+            if (isnum)
+            {
+                for (int j = 0; j < userGuess.Length; j++)
+                {
+                    userGuess[j] = int.Parse(input[j].ToString());
+                }
+                // 문자열을 숫자 배열로
+        
+                for (int k = 0; k < userGuess.Length; k++)
+                {
+        
+                    for (int i=0; i<userGuess.Length; i++)
+                    {
+                        if (userGuess[k] == targetNumber[i])
+                        {
+                            if(k==i)
+                            {
+                                strike++;
+                            }
+                            else if (k!=i)
+                            {
+                                ball++;
+                            }
+                            // 스트라이크|볼 확인
+                        }
+                    }
+                }
+                Console.WriteLine($"{strike} 개의 스트라이크, {ball} 개의 볼 입니다.");
+                //스트라이크|볼 횟수 출력
+        
+            }
+            //반복문 끝
+        
+            else
+            {
+                Console.WriteLine("숫자가 아닙니다.");
+            }
+            //숫자가 아닐 경우 출력
+        
+        
+            if (strike==userGuess.Length)
+            {
+                guessedCorrectly = true;
+                Console.WriteLine($"축하합니다! 정답을 {attempts}번 안에 맞추셨습니다.");
+            }
+            //정답을 맞췄을 경우 출력
+        
+        }
+
